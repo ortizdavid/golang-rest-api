@@ -5,11 +5,14 @@ import (
 	"net/http"
 	"github.com/ortizdavid/golang-rest-api/config"
 	"github.com/ortizdavid/golang-rest-api/controllers"
+	"github.com/gorilla/mux"
+
 )
 
 func main() {
 
-	controllers.SetupRoutes()
+	router := mux.NewRouter()
+	controllers.SetupRoutes(router)
 	log.Println("Server Running on", config.ListenAddr())
-	http.ListenAndServe(config.ListenAddr(), nil)
+	log.Fatal(http.ListenAndServe(config.ListenAddr(), router))
 }

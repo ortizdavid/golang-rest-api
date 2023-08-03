@@ -1,5 +1,7 @@
-package controllers 
+package controllers
 
-func SetupRoutes() {
-	TaskController{}.RegisterRoutes()
+import "github.com/gorilla/mux"
+
+func SetupRoutes(router *mux.Router) {
+	TaskController{}.RegisterRoutes(router)
 }

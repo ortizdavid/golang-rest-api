@@ -13,3 +13,4 @@
 - File Upload
 - Logs
 - JWT
+- Documentation
